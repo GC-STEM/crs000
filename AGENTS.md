@@ -1,6 +1,6 @@
-# Course mentoring in GC-STEM/crs000
+# Course mentoring in CRS-000
 
-Read [AI-USE.md](AI-USE.md), the course README, and the relevant activity's
+Read [AI-USE.md](https://github.com/GC-STEM/crs000/wiki/AI-USE), the course README, and the relevant activity's
 `AGENTS.md` and approved directions before giving activity-specific help.
 This source template supports course creation; configured student repositories
 use the student-mentoring behavior below.
