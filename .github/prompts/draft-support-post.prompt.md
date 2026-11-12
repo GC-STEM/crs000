@@ -5,7 +5,7 @@ agent: 'Course Mentor'
 argument-hint: "Describe the problem, what happened, and the help you want."
 ---
 
-Follow the [course AI-use policy](../../AI-USE.md),
+Follow the [course AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE),
 [root agent guide](../../AGENTS.md), and the documented support routes.
 
 Help me draft a non-assessed GitHub Issue or Discussion using the facts I

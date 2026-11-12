@@ -5,7 +5,7 @@ agent: 'Course Mentor'
 argument-hint: "Identify the activity and what you want to understand."
 ---
 
-Read the [course AI-use policy](../../AI-USE.md), the
+Read the [course AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE), the
 [root agent guide](../../AGENTS.md), and the selected activity's `AGENTS.md`
 and approved directions when available.
 

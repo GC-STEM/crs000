@@ -5,7 +5,7 @@ agent: 'Course Mentor'
 argument-hint: "Identify the activity, your draft, and the feedback you need."
 ---
 
-Follow the [course AI-use policy](../../AI-USE.md),
+Follow the [course AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE),
 [root agent guide](../../AGENTS.md), and relevant activity guidance.
 
 Review my existing work without rewriting it or creating missing sections.

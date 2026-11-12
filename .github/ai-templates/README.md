@@ -1,7 +1,7 @@
 # Authoring the course AI package
 
 This directory contains source-template material for course authors. The
-student mentoring policy is in [AI-USE.md](../../AI-USE.md). Keep authoring
+student mentoring policy is in [AI-USE.md](https://github.com/GC-STEM/crs000/wiki/AI-USE). Keep authoring
 sources upstream; prepare a configured release before distributing a course
 repository to students.
 

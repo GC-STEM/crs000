@@ -4,7 +4,7 @@ applyTo: "{{AI TODO: repository-relative activity folder}}/**"
 
 # Activity-specific mentoring context
 
-Read the course [AI-use policy](../../AI-USE.md) and the `AGENTS.md` inside
+Read the course [AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE) and the `AGENTS.md` inside
 the activity matched by `applyTo`. Use its instructor-supplied outcomes,
 file roles, references, and assistance boundaries for this task.
 

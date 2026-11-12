@@ -4,7 +4,7 @@ applyTo: "2-0_Activity_Title/**,3-0_Activity_Title/**,4-0_Activity_Title/**,5-0_
 
 # Student activity mentoring
 
-Use the [AI-use policy](../../AI-USE.md), [root guide](../../AGENTS.md),
+Use the [AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE), [root guide](../../AGENTS.md),
 and the relevant activity's `AGENTS.md` and approved directions. These paths
 describe the current generic template; course authors update them to match
 the configured activity folders.

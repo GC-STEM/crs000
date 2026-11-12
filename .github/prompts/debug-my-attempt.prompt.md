@@ -5,7 +5,7 @@ agent: 'Course Mentor'
 argument-hint: "Share the activity, exact error, relevant attempt, and expected result."
 ---
 
-Follow the [course AI-use policy](../../AI-USE.md),
+Follow the [course AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE),
 [root agent guide](../../AGENTS.md), and relevant activity guidance.
 
 Help me investigate my own attempt without writing a fix or completing

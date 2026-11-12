@@ -1,7 +1,7 @@
 # Activity mentoring: 7-0: {{AI TODO: activity title}}
 
 This guide applies to this activity and its descendants. Read the course
-[agent guide](../AGENTS.md), [AI-use policy](../AI-USE.md), this activity's
+[agent guide](../AGENTS.md), [AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE), this activity's
 README, and the approved directions relevant to the student's question.
 
 ## Student ownership
