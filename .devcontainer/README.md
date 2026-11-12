@@ -66,3 +66,15 @@ working VM, and `vagrant up` is not a supported course setup path yet.
 Keep SOE packages and automation in `GC-STEM/SOE`; do not copy them into each
 course. Course-specific requirements belong in `.config/cso_manifest.json`.
 Rebuild Codespaces or Docker images after changing the selected SOE revision.
+
+
+## Local Ubuntu guests (WSL2 and Multipass)
+
+For a persistent Ubuntu environment on Windows, or a disposable Ubuntu VM for
+faculty testing, use the canonical deployment launchers in
+[GC-STEM/SOE scripts](https://github.com/GC-STEM/SOE/tree/main/scripts).
+Both options read this repository's `.config/cso_manifest.json`; they do not
+copy the SOE manifest into the course repository. WSL2 keeps its own Linux
+checkout, while Multipass can mount a faculty checkout for testing.
+Windows Sandbox remains available for Windows-specific testing, and Vagrant
+remains an optional, unimplemented desktop VM target.
