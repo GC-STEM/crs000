@@ -1,36 +1,26 @@
+
 {
   "$schema": "https://raw.githubusercontent.com/GC-STEM/.github/refs/heads/main/schemas/manifest.schema.json",
-  "schema_version": "3.1",
+  "schema_version": "3.2",
   "manifest_type": "course",
   "course": {
     "course_id": "CRS-000",
-    "course_title": "Faculty Course Repository Template",
-    "environment_name": "CRS-000 Faculty Course-specific overlay",
-    "repository_name": "crs000-faculty",
-    "repository_visibility": "private",
-    "repository_audience": "assigned_faculty"
+    "course_title": "Course Repository Template",
+    "environment_name": "CRS-000 Course-Specific Overlay",
+    "repository_name": "crs000",
+    "repository_visibility": "public",
+    "repository_audience": "students"
   },
   "baseline": {
     "baseline_id": "stem_computing_baseline",
-    "path": "${ATLAS_ROOT}/.config/scb_manifest.json"
+    "path": "${SOE_ROOT}/.config/soe_manifest.json"
   },
   "control": {
     "status": "draft",
-    "source_repository": "https://github.com/GC-STEM/crs000-faculty",
-    "change_summary": "Adopt schema 3.1 and the private faculty course template identity. Assigned faculty access is enforced by GitHub repository permissions. Inherit the selected Atlas SOE and its deployment-aware requirements and launch profiles. Describe planned sanitized student distribution, retaining only .faculty/README.md inside .faculty and rewriting repository identity and launch links for the destination."
+    "source_repository": "https://github.com/GC-STEM/crs000",
+    "change_summary": "Migrate the student-facing course template to schema 3.2 and the GC-STEM/SOE baseline. Replace copied faculty repository identity and audience, remove faculty-source distribution metadata, and retain empty additions and overrides for course-specific requirements."
   },
   "course_environments": {},
   "additions": {},
-  "overrides": [],
-  "student_distribution": {
-    "enabled": false,
-    "faculty_directory": ".faculty",
-    "retained_faculty_paths": [
-      ".faculty/README.md"
-    ],
-    "publish_mode": "sanitized_snapshot",
-    "include_source_history": false,
-    "rewrite_repository_identity": true,
-    "notes": "Planned GitHub Action; disabled until an approved workflow and destination repository are configured. Publish a sanitized snapshot to the selected student repository, retaining only .faculty/README.md within .faculty. Omit faculty Git history; replace faculty repository identity, visibility and audience metadata with destination-specific values and omit this faculty-only distribution configuration. Generate launch links for that destination. Repository visibility and assigned-faculty permissions are GitHub settings, not access grants provided by this manifest."
-  }
+  "overrides": []
 }
