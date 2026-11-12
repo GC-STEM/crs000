@@ -1,213 +1,68 @@
-<!-- To see this file in a clean, formatted view, select ▼ in the upper-right corner of the editor pane, then select "Markdown Preview".-->
+# Course Development Environments
 
-# Codespaces SOE
+This folder configures the course's **Standard Operating Environment (SOE)**
+plus any **Course-Specific Overlay (CSO)** requirements defined in
+[`.config/cso_manifest.json`](../.config/cso_manifest.json).
 
-GitHub Codespaces is the default devcontainer for emergency student access
-and faculty verification of course code. The image follows current Ubuntu
-LTS − 1 and that release's default CPython minor version, the approved target
-for Codio Boxes and VMs. It includes manifest-selected command-line tools
-and provider-managed VS Code extensions. It does not run a Linux desktop.
-The Codio deployment remains the primary overall reference.
+The canonical SOE manifest and provisioning scripts are maintained in
+[GC-STEM/SOE](https://github.com/GC-STEM/SOE), and the JSON schema is maintained
+in [GC-STEM/.github](https://github.com/GC-STEM/.github/tree/main/schemas).
+The current target is **Ubuntu 24.04 LTS, CPython 3.12, AMD64**. Codio remains
+the reference course environment when provided.
 
-SOE extension identifiers match the `recommendations` list in
-`.vscode/extensions.json` on every platform. CI checks that alignment
-and the generated Codespaces configuration. CSOs may add course extensions.
+## GitHub Codespaces
 
-Current Ubuntu LTS − 1 means the Ubuntu LTS immediately preceding the
-latest LTS, paired with its default Python minor version. The SOE manifest
-records the concrete releases. Patch updates are allowed within those
-lines. A different LTS or Python minor requires a reviewed, qualified SOE
-release; moving `latest` tags do not select the baseline.
+Open the course repository on GitHub and select **Code > Codespaces > Create
+codespace**. Its `devcontainer.json` builds the image using a pinned SOE source
+snapshot. On creation, the SOE automation applies the course CSO. Subsequent
+startups verify the runtime, and editor attachment checks VS Code extensions.
 
-Rebuild existing local containers and Codespaces to use the new image.
-Recreate course virtual environments with the manifest-selected Python
-interpreter and reinstall their declared packages when they were created
-using another Python minor.
-The image update does not migrate existing Codio provider environments.
+The Dockerfile's `SOE_COMMIT` argument selects the tested SOE revision. Update
+that reference deliberately when qualifying an SOE update, then rebuild the
+container. Codespaces availability, limits, and billing depend on the user's
+GitHub account and organization settings.
 
-## Open the environment
+## Local Docker
 
-Push the implementation and its configuration to the branch you intend to
-use. On GitHub, select that branch, choose **Code > Codespaces**, and create
-a codespace using the default configuration. GitHub confirms repository
-access, available machines, and the account responsible for usage. The
-repository does not grant access or promise unlimited free usage.
-
-For a local launcher, select the CPython interpreter required by the SOE
-manifest and make sure `python` invokes it. Install the shared automation
-dependencies into an isolated environment, then run from the selected
-checkout:
+Install Docker with the Compose plugin. From the **course repository root**,
+run:
 
 ```bash
-python -m venv .venv
-.venv/bin/python -m pip install -r .config/requirements-automation.txt
-.venv/bin/python scripts/python/launch_codespaces.py --print-url
+docker compose -f .devcontainer/compose.local.yaml run --build --rm soe
 ```
 
-On Windows, use `.venv\Scripts\python.exe` in place of `.venv/bin/python`.
-Omit `--print-url` to open the creation page. The launcher derives the
-owner/repository from this checkout's GitHub `origin` and uses its current
-branch. A detached checkout requires `--branch`. Local uncommitted or
-unpushed changes are not transferred to GitHub by this command.
+This builds the same Ubuntu image, mounts the course checkout at
+`/workspaces/course`, applies its CSO, then opens a Bash shell. Local changes
+are written to the course checkout on the host. A new interactive session
+runs setup again, which should be safe to repeat, but may perform package
+installation when requirements are missing. The SOE script is bundled into
+the image at `/opt/gc-stem/soe/scripts/python/soe.py`.
 
-The launcher never creates a billable codespace without GitHub's creation
-page. It never signs in, changes repositories, or pushes local changes.
-
-## Lifecycle and verification
-
-The Dockerfile installs the SOE from the bundled manifest. Image provisioning
-uses root; the editor, terminal, course setup, and course virtual environments
-use the `vscode` development account. Course system-package additions use
-noninteractive sudo. Credentials and personal Git identity are not baked in.
-
-Creation runs course setup once. Startup runs read-only runtime verification.
-Editor attachment additionally verifies the managed VS Code extension list.
-Starting the environment does not upgrade packages or launch authentication.
-
-Run an explicit check inside the container:
+To verify the course from inside the container, run:
 
 ```bash
-/opt/gc-stem/runtime/bin/python /opt/gc-stem/atlas/scripts/python/soe.py verify
-/opt/gc-stem/runtime/bin/python /opt/gc-stem/atlas/scripts/python/soe.py verify --editor
+/opt/gc-stem/runtime/bin/python /opt/gc-stem/soe/scripts/python/soe.py verify --workspace /workspaces/course
 ```
 
-The editor check requires an attached VS Code session. The runtime check does
-not claim to verify editor extensions. Faculty should use the assignment's
-CSO and run its actual tests in addition to environment verification.
+The local Docker option does not include a Linux desktop, and its startup
+does not automatically install the editor extensions available in Codespaces.
 
-The image contains a build-time SOE snapshot and matching automation under
-`/opt/gc-stem/atlas`. Rebuild after changing shared SOE requirements; setup
-does not fetch a different Atlas checkout or silently change that snapshot.
+## Windows Sandbox
 
-## Course overlays
+`Sandboxfile.wsb` launches a disposable Windows test environment and downloads
+[the SOE Windows Sandbox bootstrap](https://github.com/GC-STEM/SOE/blob/main/scripts/pwsh/setup_windows_sandbox.ps1).
+The bootstrap reads the SOE and CSO manifests and installs supported Windows
+tools. It is designed for faculty/testing, not persistent student course work.
+Changes inside Windows Sandbox are lost when it closes. The bootstrap must be
+qualified on a clean Sandbox installation before claiming it is ready for use.
 
-Schema 3.2 uses `.config/soe_manifest.json` in Atlas and
-`.config/cso_manifest.json` in each course. It uses `manifest_type: "soe"`,
-`configuration_kind: "soe"` or `"cso"`, and `capability_bindings`. Legacy
-manifest shapes must be migrated explicitly before using this resolver.
+## Vagrant
 
-Every course, including an SOE-only course, declares a CSO manifest:
+`Vagrantfile` is an **intentional placeholder**. It does not configure a
+working VM, and `vagrant up` is not a supported course setup path yet.
 
-```json
-{
-  "schema_version": "3.2",
-  "manifest_type": "course",
-  "course": {
-    "course_id": "CS-101",
-    "course_title": "Example course",
-    "environment_name": "Example CSO",
-    "repository_name": "example-course"
-  },
-  "baseline": {
-    "path": "${ATLAS_ROOT}/.config/soe_manifest.json",
-    "baseline_id": "stem_computing_baseline"
-  },
-  "control": {
-    "status": "draft",
-    "source_repository": "https://github.com/GC-STEM/example-course"
-  },
-  "additions": {},
-  "overrides": []
-}
-```
+## Maintenance
 
-Add new platform support packages through `additions.platform_extensions`.
-Add language packages with a declared `python_venv` course environment and
-`python_venv_package` bindings. These install through the course environment's
-interpreter, never global pip. Dependency resolution happens after SOE/CSO
-composition and deployment filtering. Duplicate IDs, missing dependencies,
-unauthorized overrides, and unsupported adapters are errors before setup.
-
-The implementation supports APT packages from the configured Ubuntu/GitHub
-CLI repositories, named PyPI packages in course virtual environments,
-provider-managed editor/extensions, and workspace VS Code JSON settings.
-Other assets, removal operations, sources, and installers require an explicit
-adapter implementation; they are not silently skipped.
-
-Course repositories need their own `.devcontainer/devcontainer.json`.
-They do not inherit Atlas configuration automatically. After publishing an
-SOE image to the chosen registry, generate a course configuration from its
-resolved requirements, supplying that image's immutable reference:
-
-```bash
-python /path/to/atlas/scripts/python/soe.py devcontainer \
-  --atlas-root /path/to/atlas --workspace /path/to/course \
-  --image registry.example/soe@sha256:REPLACE_WITH_PUBLISHED_DIGEST
-```
-
-Commit the generated course configuration. Regenerate and rebuild after
-changing course extensions. Image publication is separate from this
-repository's Codespaces implementation; no DockerHub artifact is assumed.
-
-## Local Docker build and launch
-
-The local Compose configuration uses the headless SOE image and maps the
-host's `$HOME/Repos` to `/home/vscode/Repos`, which is `~/Repos` for the
-container's `vscode` user. The shell starts in that directory. Changes made
-there are written to the host's repositories.
-
-Create the host directory if needed:
-
-```bash
-mkdir -p "$HOME/Repos"
-```
-
-On the host, run this command from the Atlas checkout to build the image
-and open an interactive container shell:
-
-```bash
-docker compose -f .devcontainer/compose.local.yaml run --build --rm soe bash
-```
-
-Compose uses the host's `HOME`, with `USERPROFILE` as the Windows fallback.
-The source directory must already exist. On Windows PowerShell, create it
-with `New-Item -ItemType Directory -Force "$HOME/Repos"` if needed, then use
-the same Docker Compose command.
-
-The Dockerfile prepares the container directory; the host bind mount is
-applied when Compose starts the container. For a direct Docker launch after
-building the local image:
-
-```bash
-docker run --rm -it \
-  --mount "type=bind,source=$HOME/Repos,target=/home/vscode/Repos" \
-  --workdir /home/vscode/Repos gc-stem-soe:local bash
-```
-
-## Local qualification
-
-```bash
-docker build -t gc-stem-soe:test -f .devcontainer/Dockerfile .
-docker run --rm \
-  --mount "type=bind,source=$PWD,target=/workspaces/atlas,readonly" \
-  --workdir /workspaces/atlas gc-stem-soe:test \
-  /opt/gc-stem/runtime/bin/python .github/ci/smoke_codespaces.py
-```
-
-The Codespaces workflow builds the image and checks SOE-only resolution,
-course composition, approved Python compatibility, course package isolation,
-repeated setup, and launcher identity. A GitHub-hosted editor attachment is
-still needed to check the actual managed editor and extension installation.
-
-The schema is maintained only in
-`GC-STEM/.github/schemas/manifest.schema.json`. Atlas does not carry a
-repository copy. The manifest's `$schema` reference points to that canonical
-published file.
-
-Local validation uses the published schema by default. To validate offline
-or against unpublished schema changes, pass `--schema` with the actual file
-in your selected `.github` checkout, or set `SOE_SCHEMA_PATH` to that file.
-The resolver and launcher both support `--schema`; an invalid selected path
-fails rather than silently switching to the network.
-
-Image builds fetch the canonical published schema into
-`/opt/gc-stem/schema/manifest.schema.json`, outside the Atlas checkout, and
-set `SOE_SCHEMA_PATH` to it. This is a generated runtime dependency, not a
-second maintained source. The built environment can validate offline.
-Publish schema changes in `.github` before building a container that needs
-them; rebuilding the image retrieves the current published schema.
-
-The first qualified container architecture is Linux AMD64. Native ARM64 and
-the optional Xfce Docker desktop remain separate work. VM launchers remain
-disabled, and Vagrant is optional. Development status does not imply
-institutional approval of a release or its funding arrangements.
+Keep SOE packages and automation in `GC-STEM/SOE`; do not copy them into each
+course. Course-specific requirements belong in `.config/cso_manifest.json`.
+Rebuild Codespaces or Docker images after changing the selected SOE revision.

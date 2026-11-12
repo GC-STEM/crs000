@@ -1,17 +1,25 @@
-# Local Docker launch settings; paths are resolved on the Docker host.
+# Run from the course repository root with:
+# docker compose -f .devcontainer/compose.local.yaml run --build --rm soe
 services:
   soe:
-    image: gc-stem-soe:local
+    image: gc-stem-course:local
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     init: true
     stdin_open: true
     tty: true
-    working_dir: /home/vscode/Repos
+    working_dir: /workspaces/course
     volumes:
       - type: bind
-        source: "${HOME:-${USERPROFILE:?Set HOME or USERPROFILE to your home directory}}/Repos"
-        target: /home/vscode/Repos
+        source: ..
+        target: /workspaces/course
         bind:
           create_host_path: false
+    command:
+      - /bin/bash
+      - -lc
+      - |
+        set -e
+        /opt/gc-stem/runtime/bin/python /opt/gc-stem/soe/scripts/python/soe.py setup --workspace /workspaces/course
+        exec bash

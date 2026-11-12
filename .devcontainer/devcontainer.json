@@ -1,30 +1,30 @@
 {
-  "name": "GC-STEM SOE - Ubuntu 24.04 / Python 3.12",
+  "name": "GC-STEM course SOE + CSO - Ubuntu 24.04 / Python 3.12",
   "remoteUser": "vscode",
   "containerUser": "vscode",
   "init": true,
   "updateRemoteUserUID": true,
   "overrideCommand": true,
   "containerEnv": {
-    "ATLAS_ROOT": "/opt/gc-stem/atlas"
+    "SOE_ROOT": "/opt/gc-stem/soe"
   },
   "postCreateCommand": [
     "/opt/gc-stem/runtime/bin/python",
-    "/opt/gc-stem/atlas/scripts/python/soe.py",
+    "/opt/gc-stem/soe/scripts/python/soe.py",
     "setup",
     "--workspace",
     "${containerWorkspaceFolder}"
   ],
   "postStartCommand": [
     "/opt/gc-stem/runtime/bin/python",
-    "/opt/gc-stem/atlas/scripts/python/soe.py",
+    "/opt/gc-stem/soe/scripts/python/soe.py",
     "verify",
     "--workspace",
     "${containerWorkspaceFolder}"
   ],
   "postAttachCommand": [
     "/opt/gc-stem/runtime/bin/python",
-    "/opt/gc-stem/atlas/scripts/python/soe.py",
+    "/opt/gc-stem/soe/scripts/python/soe.py",
     "verify",
     "--editor",
     "--workspace",
