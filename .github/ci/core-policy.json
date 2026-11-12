@@ -1,6 +1,6 @@
 {
   "required_files": [
-    ".config/cde_manifest.json",
+    ".config/cso_manifest.json",
     ".github/ci/check_links.py",
     ".github/ci/check_readme_commands.py",
     ".github/ci/check_repository.py",

@@ -2,6 +2,10 @@
 
 # CRS-000 Code Repository
 
+Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course with the files, instructions, and resources you need to complete course activities.
+
+**New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the **Module 1 Setup Tasks** below, which will guide you through setting up and using your own course repository.
+
 ---
 
 > [!CAUTION]
@@ -9,9 +13,9 @@
 
 ---
 
-Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course by providing the necessary {{AI TODO: replace with the top 2-3 resources in this repo, such as starter templates and software development workflows.}}.
-
 ## Table of Contents <!-- omit from toc -->
+
+Complete the following module activities in order to successfully progress through the course.
 
 1. [Module 1: Setup Tasks](#module-1-setup-tasks)
 2. [Modules {{A-B}}: {{A-B Common Activity Title}}](#modules-a-b-a-b-common-activity-title)
@@ -23,7 +27,7 @@ Welcome to the **CRS-000 Code Repository**! This repository supplements your [**
 
 - **Students**. Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%80%901-Setup-Tasks) before starting on other repository activities, ideally before the end of Week 1.
 
-- **Faculty**. Do NOT complete the student setup tasks. Follow the guidance in the [**Faculty README**](.faculty/README.md) instead.
+- **Faculty**. Do NOT complete the student setup tasks. Follow the guidance in the [**Faculty README**](https://github.com/GC-STEM/crs000/wiki/Course-Faculty) instead.
 
 ## Modules {{A-B}}: {{A-B Common Activity Title}}
 
@@ -63,7 +67,7 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 
 ## Help and Support
 
-- [**AI use and Course Mentor**](AI-USE.md)
+- [**AI use and Course Mentor**](https://github.com/GC-STEM/crs000/wiki/AI-USE.md)
 
 - [**Support for Students**](https://github.com/GC-STEM/crs000/wiki/Support-for-Students)
 - [**Support for Faculty**](https://github.com/GC-STEM/crs000-faculty/wiki/Support-for-Faculty)
