@@ -50,9 +50,13 @@ does not automatically install the editor extensions available in Codespaces.
 ## Windows Sandbox
 
 `Sandboxfile.wsb` launches a disposable Windows test environment and downloads
-[the SOE Windows Sandbox bootstrap](https://github.com/GC-STEM/SOE/blob/main/scripts/pwsh/setup_windows_sandbox.ps1).
-The bootstrap reads the SOE and CSO manifests and installs supported Windows
-tools. It is designed for faculty/testing, not persistent student course work.
+[the SOE Windows Sandbox bootstrap](https://github.com/GC-STEM/SOE/blob/main/scripts/powershell/setup_windows_sandbox.ps1).
+This course launcher invokes the shared PowerShell 5.1 bootstrap with
+`-CourseRepo 'GC-STEM/crs000'`, installing the SOE and supported additional
+Windows capabilities declared in the course CSO. The current bootstrap rejects
+CSO overrides; additional CSO settings and installers may require further
+Windows adapter work and qualification.
+It is designed for faculty/testing, not persistent student course work.
 Changes inside Windows Sandbox are lost when it closes. The bootstrap must be
 qualified on a clean Sandbox installation before claiming it is ready for use.
 
