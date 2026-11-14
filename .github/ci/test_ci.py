@@ -57,6 +57,27 @@ class RepositoryTests(unittest.TestCase):
     def test_valid_baseline(self):
         self.assertEqual(validate(self.root, self.policy), ([], []))
 
+    def test_rejects_tracked_faculty_content(self):
+        paths = [
+            ".faculty/guide.md",
+            "2-0_Activity_Title/.faculty/solution.py",
+            "2-0_Activity_Title/docs/.faculty/answers.md",
+        ]
+
+        for path in paths:
+            self.write(path, "Faculty-only content\n")
+
+        self.stage()
+
+        errors, _ = validate(self.root, self.policy)
+
+        faculty_errors = [
+            error for error in errors
+            if "Faculty-only directory is tracked:" in error
+        ]
+
+        self.assertEqual(len(faculty_errors), len(paths))
+
     def test_missing_required_file(self):
         self.policy["required_files"].append("LICENSE")
         errors, _ = validate(self.root, self.policy)
