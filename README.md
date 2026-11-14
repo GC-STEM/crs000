@@ -76,11 +76,16 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 - **On GitHub.com:** Open [Copilot Chat](https://github.com/copilot), select your course repository as context, and ask a question about an activity or file. You can also open a repository file and select the Copilot icon to ask about it.
 - **In VS Code:** Open your course repository, sign in to GitHub, and open Copilot Chat. Select the **Course Mentor** from the agent menu, if available. This course-specific assistant is designed to explain concepts, provide feedback, and help you troubleshoot without completing your assignments.
 
-**Example questions:**
+**In VS Code, with Course Mentor selected, type `/` in Copilot Chat and choose:**
 
-- "Help me understand the instructions for this activity."
-- "Explain this error message and suggest one thing I should check."
-- "Review my work and help me identify what I should improve."
+- `/understand-activity` — Understand an activity's instructions.
+- `/debug-my-attempt` — Investigate an error in your own work.
+- `/review-my-work` — Get feedback on your existing attempt.
+- `/draft-support-post` — Prepare a GitHub Issue or Discussion for your review.
+
+Add your question and relevant details after the command. If these commands
+are unavailable, ask Course Mentor a question in ordinary language instead.
+On GitHub.com, use ordinary questions; VS Code commands may not be available.
 
 > [!IMPORTANT]
 > **AI is a learning assistant, not a substitute for your own work.** You are responsible for completing your assignments, checking AI responses, and following your course's AI-use rules. Do not share passwords, personal information, or private course records with AI tools.

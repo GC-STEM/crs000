@@ -15,7 +15,7 @@ repository to students.
 | `.github/instructions/student-mentoring.instructions.md` | Shared activity guidance scoped to the current activity folders. |
 | Each activity's `AGENTS.md` | Verified local context, protected deliverables, references, and appropriate help. |
 | `.github/agents/course-mentor.agent.md` | Selectable Course Mentor with read/search tools. |
-| `.github/prompts/*.prompt.md` | Reusable understanding, debugging, review, and support-post prompts. |
+| `.github/skills/*/SKILL.md` | Manually invoked understanding, debugging, review, and support-post workflows. |
 | `.vscode/settings.json` | Disable inline completions and next-edit suggestions while retaining chat. |
 | `.vscode/mcp.json` | Empty repository server list; no external service is required. |
 | This directory | Activity sources, release checks, and the proposed instructor verification design. |
@@ -48,16 +48,21 @@ vary by client; do not promise universal enforcement.
    client requires it. Place the configured file under `.github/instructions/`
    with a real `.instructions.md` suffix and a verified activity `applyTo`.
    Do not create six active copies of the shared policy without a need.
-6. Remove source-only authoring sections from the released student documents
+6. Keep all four manually invoked skills in `.github/skills/`, with each
+   `SKILL.md` named for its containing folder. Preserve `user-invocable: true`
+   and `disable-model-invocation: true` unless a separate release review
+   explicitly authorizes a change. Skills do **not** select Course Mentor or
+   restrict tool permissions; students must select the agent separately.
+7. Remove source-only authoring sections from the released student documents
    and AI instructions, including literal placeholder examples and references
    to this authoring directory. Retain the authoring sources upstream and
    exclude `.github/ai-templates/` from the student release. Resolve all other
    authoring placeholders throughout the release; students must not receive
    `{{AI TODO: ...}}` markers or unresolved course context.
-7. Preserve established course EOL rules in `.gitattributes`, `.editorconfig`,
+8. Preserve established course EOL rules in `.gitattributes`, `.editorconfig`,
    and editor settings. Do not normalize student submissions to a different
    policy while configuring AI support.
-8. Run static validation and the manual
+9. Run static validation and the manual
    [acceptance scenarios](acceptance-checks.md). Record the tested client,
    harness, model, settings, tool exposure, and remaining limitations outside
    the student instructions. Publish only after the course context and
@@ -72,11 +77,13 @@ these sources from becoming active instruction files by default.
 
 ## Client behavior and maintenance
 
-Select **Course Mentor** in a supported VS Code session and inspect the tools
-actually exposed. The four saved prompts name that agent and do not override
-its tool selection. Current VS Code documentation limits prompt files to the
-Local agent harness; their body text can be used manually elsewhere. Confirm
-compatibility again when supported clients change.
+Select **Course Mentor** in a supported VS Code **Copilot harness** session
+and inspect the tools actually exposed. Invoke one of the four skills using
+`/understand-activity`, `/debug-my-attempt`, `/review-my-work`, or
+`/draft-support-post`. The skills are explicitly invoked, not auto-selected;
+unlike the former prompt files, they have no `agent` frontmatter setting and
+cannot automatically switch to Course Mentor. Validate actual agent selection
+and tool exposure. These slash commands are not guaranteed in GitHub.com Chat.
 
 The read/search profile is a default mentoring configuration. An empty
 workspace MCP list does not disable user-level servers, and workspace
@@ -85,9 +92,9 @@ Instruction compliance and student authorship require more than file presence.
 Do not describe this package as a technical guarantee against answer generation.
 
 For authorized template maintenance, follow the root `AGENTS.md` validation
-guidance. Keep agents and prompts aligned when changing names or tools. Review
-all active activity guides when changing their maintained source; existing
-copies do not synchronize automatically.
+guidance. Keep the Course Mentor and skills aligned when changing names or
+guidance. Review all active activity guides when changing their maintained
+source; existing copies do not synchronize automatically.
 
 The [instructor integrity-check design](instructor-integrity-plan.md) proposes
 an external, read-only comparison against an instructor-controlled baseline.
@@ -99,5 +106,7 @@ It is a design only; this package does not install or activate a checker.
 - [VS Code custom instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
 - [VS Code custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents)
 - [Custom agent file reference](https://code.visualstudio.com/docs/agents/reference/custom-agent-file-reference)
-- [VS Code prompt files](https://code.visualstudio.com/docs/agent-customization/prompt-files)
+- [VS Code Agent Skills](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+- [VS Code prompt-to-skill migration](https://code.visualstudio.com/docs/agent-customization/migrate-customizations)
+- [GitHub Copilot Agent Skills](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)
 - [Copilot inline suggestion settings](https://code.visualstudio.com/docs/editing/ai-powered-suggestions)

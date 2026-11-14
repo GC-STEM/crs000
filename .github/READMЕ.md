@@ -13,7 +13,7 @@ The `.github/` folder holds files that support how a repository works on GitHub.
 | [`workflows/`](workflows/) and [`ci/`](ci/README.md) | Define automated checks for repository configuration, documentation links, and command examples. |
 | [`CODEOWNERS`](CODEOWNERS) | Identifies the teams responsible for reviewing changes to repository files. |
 | [`CHANGELOG.md`](CHANGELOG.md) | Records notable changes to the course repository. |
-| [`copilot-instructions.md`](copilot-instructions.md), `agents/`, `instructions/`, and `prompts/` | Guide Copilot and the Course Mentor in helping you understand and debug your work while keeping assessed work yours. |
+| [`copilot-instructions.md`](copilot-instructions.md), `agents/`, `instructions/`, and [`skills/`](skills/) | Guide Copilot and the Course Mentor in helping you understand and debug your work while keeping assessed work yours. |
 
 ## Shared GC-STEM guidance
 
