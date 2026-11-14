@@ -32,7 +32,7 @@ Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%8
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GC-STEM/crs000?quickstart=1)
 
 > [!WARNING]
-> [GitHub Codespaces](https://github.com/features/codespaces) is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. [Learn more](https://github.com/GC-STEM/SOE/wiki/GitHub-Codespaces).
+> This is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. [Learn more](https://github.com/GC-STEM/SOE/wiki/GitHub-Codespaces).
 
 ## Modules {{A-B}}: {{A-B Common Activity Title}}
 
