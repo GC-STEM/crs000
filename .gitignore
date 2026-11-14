@@ -2,8 +2,7 @@
 # If there is a problem with it, submit a GitHub issue or pull request to fix it.
 
 temp.*
-*/.faculty/*
-*/.optional/*
+**/.optional/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -329,3 +328,6 @@ http-client.private.env.json
 # .guides/
 # .project-setup/
 # .tmp/
+
+# Exclude faculty-only directories at every depth.
+**/.faculty/
