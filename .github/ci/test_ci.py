@@ -11,15 +11,21 @@ import tempfile
 import threading
 import unittest
 from pathlib import Path
+from typing import Literal
 
 from check_readme_commands import blocks, syntax_check
-from check_repository import ROOT, check_eol, validate
+from check_repository import (
+    ROOT,
+    RepositoryPolicy,
+    check_eol,
+    validate,
+)
 
 LYCHEE = os.environ.get("LYCHEE_TEST_EXECUTABLE") or shutil.which("lychee")
 
 
 class RepositoryTests(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.directory = tempfile.TemporaryDirectory()
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
@@ -37,27 +43,27 @@ class RepositoryTests(unittest.TestCase):
         self.write(
             ".vscode/settings.json", '{"[python]": {"files.eol": "\\r\\n"}}'
         )
-        self.policy = {
+        self.policy: RepositoryPolicy = {
             "required_files": [".gitattributes", ".editorconfig"],
             "ide_samples": {"python": "example.py"},
         }
         self.stage()
 
-    def write(self, name, source):
+    def write(self, name: str, source: str) -> Path:
         path = self.root / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(source, encoding="utf-8")
         return path
 
-    def stage(self):
+    def stage(self) -> None:
         subprocess.run(
             ["git", "add", "."], cwd=self.root, check=True, capture_output=True
         )
 
-    def test_valid_baseline(self):
+    def test_valid_baseline(self) -> None:
         self.assertEqual(validate(self.root, self.policy), ([], []))
 
-    def test_rejects_tracked_faculty_content(self):
+    def test_rejects_tracked_faculty_content(self) -> None:
         paths = [
             ".faculty/guide.md",
             "2-0_Activity_Title/.faculty/solution.py",
@@ -78,17 +84,17 @@ class RepositoryTests(unittest.TestCase):
 
         self.assertEqual(len(faculty_errors), len(paths))
 
-    def test_missing_required_file(self):
+    def test_missing_required_file(self) -> None:
         self.policy["required_files"].append("LICENSE")
         errors, _ = validate(self.root, self.policy)
         self.assertTrue(any("LICENSE" in error for error in errors))
 
-    def test_editor_policy_drift(self):
+    def test_editor_policy_drift(self) -> None:
         self.write(".editorconfig", "root = true\n[*]\nend_of_line = lf\n")
         errors, _ = validate(self.root, self.policy)
         self.assertTrue(any("EoL policy mismatch" in error for error in errors))
 
-    def test_ide_policy_conflict(self):
+    def test_ide_policy_conflict(self) -> None:
         errors, _ = check_eol(
             self.root, self.policy, {"[python]": {"files.eol": "\n"}}
         )
@@ -96,18 +102,18 @@ class RepositoryTests(unittest.TestCase):
             any("VS Code EoL conflicts" in error for error in errors)
         )
 
-    def test_ide_defaults_warn(self):
+    def test_ide_defaults_warn(self) -> None:
         errors, warnings = check_eol(self.root, self.policy, {})
         self.assertFalse(errors)
         self.assertTrue(any("safeguard" in warning for warning in warnings))
 
-    def test_compound_override_conflict(self):
+    def test_compound_override_conflict(self) -> None:
         errors, _ = check_eol(
             self.root, self.policy, {"[python][markdown]": {"files.eol": "\n"}}
         )
         self.assertTrue(errors)
 
-    def test_exact_git_exception_overrides_extension(self):
+    def test_exact_git_exception_overrides_extension(self) -> None:
         self.write(
             ".gitattributes",
             "*.py text eol=crlf\n*.json text eol=lf\nspecial.py text eol=lf\n",
@@ -120,21 +126,21 @@ class RepositoryTests(unittest.TestCase):
         self.stage()
         self.assertEqual(validate(self.root, self.policy), ([], []))
 
-    def test_jsonc_comments_and_trailing_comma(self):
+    def test_jsonc_comments_and_trailing_comma(self) -> None:
         self.write(
             ".vscode/settings.json",
             '// comment\n{"[python]": {"files.eol": "\\r\\n"},}\n',
         )
         self.assertEqual(validate(self.root, self.policy), ([], []))
 
-    def test_invalid_json_is_error(self):
+    def test_invalid_json_is_error(self) -> None:
         self.write(".vscode/settings.json", '{"unterminated": ')
         errors, _ = validate(self.root, self.policy)
         self.assertTrue(
             any("invalid configuration" in error for error in errors)
         )
 
-    def test_empty_workflow_is_error(self):
+    def test_empty_workflow_is_error(self) -> None:
         self.write(".github/workflows/empty.yml", "")
         self.stage()
         errors, _ = validate(self.root, self.policy)
@@ -142,7 +148,7 @@ class RepositoryTests(unittest.TestCase):
             any("Empty/invalid workflow" in error for error in errors)
         )
 
-    def test_write_permissions_are_error(self):
+    def test_write_permissions_are_error(self) -> None:
         self.write(
             ".github/workflows/unsafe.yml",
             "name: Unsafe\non: push\npermissions: write-all\n"
@@ -152,7 +158,7 @@ class RepositoryTests(unittest.TestCase):
         errors, _ = validate(self.root, self.policy)
         self.assertTrue(any("contents: read" in error for error in errors))
 
-    def test_action_requires_sha(self):
+    def test_action_requires_sha(self) -> None:
         self.write(
             ".github/workflows/unsafe.yml",
             "name: Unsafe\non: push\npermissions:\n  contents: read\n"
@@ -163,7 +169,7 @@ class RepositoryTests(unittest.TestCase):
         errors, _ = validate(self.root, self.policy)
         self.assertTrue(any("full SHA" in error for error in errors))
 
-    def test_empty_issue_config_warns(self):
+    def test_empty_issue_config_warns(self) -> None:
         self.write(".github/ISSUE_TEMPLATE/config.yml", "")
         self.stage()
         errors, warnings = validate(self.root, self.policy)
@@ -173,29 +179,29 @@ class RepositoryTests(unittest.TestCase):
 
 @unittest.skipUnless(shutil.which("bash"), "Bash is required.")
 class CommandTests(unittest.TestCase):
-    def test_invalid_shell_syntax(self):
+    def test_invalid_shell_syntax(self) -> None:
         self.assertIsNotNone(
             syntax_check("bash", 'if true; then\necho "missing fi"\n')
         )
 
-    def test_documentation_is_not_executed(self):
+    def test_documentation_is_not_executed(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             marker = Path(directory) / "must-not-exist"
             self.assertIsNone(syntax_check("bash", f'touch "{marker}"\n'))
             self.assertFalse(marker.exists())
 
-    def test_tilde_fence_and_transcript_labels(self):
+    def test_tilde_fence_and_transcript_labels(self) -> None:
         result = blocks("~~~bash\necho ok\n~~~\n\n```console\n$ echo ok\n```\n")
         self.assertEqual([item[1] for item in result], ["bash", "console"])
 
-    def test_unclosed_fence_fails(self):
+    def test_unclosed_fence_fails(self) -> None:
         with self.assertRaises(ValueError):
             blocks("```bash\necho ok\n")
 
 
 @unittest.skipUnless(LYCHEE, "Install Lychee to run link integration tests.")
 class LinkTests(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.directory = tempfile.TemporaryDirectory()
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
@@ -216,7 +222,10 @@ class LinkTests(unittest.TestCase):
             "# Existing Heading\n", encoding="utf-8"
         )
 
-    def run_links(self, mode="internal"):
+    def run_links(
+        self,
+        mode: Literal["internal", "external"] = "internal",
+    ) -> tuple[int, str]:
         subprocess.run(
             ["git", "add", "."], cwd=self.root, check=True, capture_output=True
         )
@@ -239,7 +248,7 @@ class LinkTests(unittest.TestCase):
         )
         return result.returncode, result.stdout + result.stderr
 
-    def test_hidden_file_encoded_path_and_heading(self):
+    def test_hidden_file_encoded_path_and_heading(self) -> None:
         (self.root / ".github/with space.md").write_text(
             "# Target\n", encoding="utf-8"
         )
@@ -251,7 +260,7 @@ class LinkTests(unittest.TestCase):
         code, output = self.run_links()
         self.assertEqual(code, 0, output)
 
-    def test_missing_file_and_heading_fail(self):
+    def test_missing_file_and_heading_fail(self) -> None:
         self.readme.write_text(
             "[missing](missing.md)\n[heading](.github/target.md#missing)\n",
             encoding="utf-8",
@@ -259,7 +268,7 @@ class LinkTests(unittest.TestCase):
         code, output = self.run_links()
         self.assertNotEqual(code, 0, output)
 
-    def test_yaml_markdown_link_is_checked_and_cleaned(self):
+    def test_yaml_markdown_link_is_checked_and_cleaned(self) -> None:
         templates = self.root / ".github/ISSUE_TEMPLATE"
         templates.mkdir()
         (templates / "config.yml").write_text(
@@ -271,9 +280,10 @@ class LinkTests(unittest.TestCase):
         self.assertNotEqual(code, 0, output)
         self.assertFalse(list(templates.glob(".ci-links-*")))
 
-    def test_external_http_good_and_missing_are_distinguished(self):
+    def test_external_http_good_and_missing_are_distinguished(self) -> None:
         class Handler(http.server.SimpleHTTPRequestHandler):
-            def log_message(self, *_):
+            def log_message(self, format: str, *args: object) -> None:
+                """Suppress HTTP request logging during tests."""
                 pass
 
         handler = functools.partial(Handler, directory=str(self.root))
@@ -295,7 +305,7 @@ class LinkTests(unittest.TestCase):
         self.assertNotEqual(code, 0, output)
 
 
-def sys_executable():
+def sys_executable() -> str:
     """Return the interpreter running these tests."""
     import sys
 

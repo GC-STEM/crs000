@@ -9,6 +9,7 @@ import subprocess
 import tempfile
 from contextlib import ExitStack
 from pathlib import Path
+from typing import cast
 
 import yaml
 from check_repository import ROOT, tracked_files
@@ -19,9 +20,17 @@ def text_values(value: object) -> list[str]:
     if isinstance(value, str):
         return [value]
     if isinstance(value, list):
-        return [text for item in value for text in text_values(item)]
+        return [
+            text
+            for item in cast(list[object], value)
+            for text in text_values(item)
+        ]
     if isinstance(value, dict):
-        return [text for item in value.values() for text in text_values(item)]
+        return [
+            text
+            for item in cast(dict[object, object], value).values()
+            for text in text_values(item)
+        ]
     return []
 
 
@@ -37,7 +46,7 @@ def main() -> int:
     root = args.root.resolve()
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
-    executable = shutil.which(args.lychee)
+    executable = shutil.which(cast(str, args.lychee))
     if not executable:
         parser.error("Lychee is required. See .github/ci/README.md.")
     executable = str(Path(executable).resolve())
@@ -52,7 +61,7 @@ def main() -> int:
     if not documentation:
         parser.error("No tracked documentation was found.")
     with ExitStack() as stack:
-        aliases = {}
+        aliases: dict[str, str] = {}
         for path in paths:
             relative = path.relative_to(root).as_posix()
             if not relative.startswith(".github/ISSUE_TEMPLATE/"):

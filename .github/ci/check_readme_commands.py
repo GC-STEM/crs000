@@ -15,9 +15,9 @@ from check_repository import ROOT, tracked_files
 
 def blocks(source: str) -> list[tuple[int, str, str]]:
     """Extract top-level fenced blocks; preserve their language and line."""
-    found = []
-    opening = None
-    body = []
+    found: list[tuple[int, str, str]] = []
+    opening: tuple[str, str, int] | None = None
+    body: list[str] = []
     for line_number, line in enumerate(source.splitlines(), 1):
         if opening is None:
             match = re.match(r"^ {0,3}(`{3,}|~{3,})([^\s]*)[^\n]*$", line)
@@ -66,7 +66,8 @@ def main() -> int:
         "--shell", choices=("bash", "sh", "zsh"), default="bash"
     )
     args = parser.parse_args()
-    errors, checked = [], 0
+    errors: list[str] = []
+    checked = 0
     # 'shell'/'console' blocks can contain transcripts; require a precise label.
     languages = {"bash": {"bash"}, "sh": {"sh"}, "zsh": {"zsh"}}[args.shell]
     for path in tracked_files(args.root):

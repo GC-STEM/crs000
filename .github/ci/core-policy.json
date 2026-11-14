@@ -1,8 +1,10 @@
 {
   "required_files": [
+    ".config/AGENTS.md",
     ".config/cso_manifest.json",
     ".config/README.md",
     ".config/requirements.txt",
+    ".devcontainer/AGENTS.md",
     ".devcontainer/compose.local.yaml",
     ".devcontainer/devcontainer.json",
     ".devcontainer/Dockerfile",
