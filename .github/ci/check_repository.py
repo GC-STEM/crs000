@@ -195,7 +195,7 @@ def check_eol(
         for value in values - {"auto"}:
             if value != desired:
                 errors.append(
-                  f"VS Code files.eol conflicts with EditorConfig: {language}."
+                    f"VS Code EoL conflicts with EditorConfig: {language}."
                 )
 
     if missing:
