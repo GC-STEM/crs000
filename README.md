@@ -69,7 +69,23 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 
 ### AI Support
 
-- [**AI use and Course Mentor**](https://github.com/GC-STEM/crs000/wiki/AI-USE.md)
+[**GitHub Copilot**](https://github.com/copilot) is an AI assistant that can help you understand activity instructions, explain technical concepts and errors, and review your work. You can use Copilot in a web browser on GitHub.com or in Visual Studio Code (VS Code) on your computer.
+
+**Getting help with Copilot:**
+
+- **On GitHub.com:** Open [Copilot Chat](https://github.com/copilot), select your course repository as context, and ask a question about an activity or file. You can also open a repository file and select the Copilot icon to ask about it.
+- **In VS Code:** Open your course repository, sign in to GitHub, and open Copilot Chat. Select the **Course Mentor** from the agent menu, if available. This course-specific assistant is designed to explain concepts, provide feedback, and help you troubleshoot without completing your assignments.
+
+**Example questions:**
+
+- "Help me understand the instructions for this activity."
+- "Explain this error message and suggest one thing I should check."
+- "Review my work and help me identify what I should improve."
+
+> [!IMPORTANT]
+> **AI is a learning assistant, not a substitute for your own work.** You are responsible for completing your assignments, checking AI responses, and following your course's AI-use rules. Do not share passwords, personal information, or private course records with AI tools.
+
+Read [**AI Use and Course Mentor**](https://github.com/GC-STEM/crs000/wiki/AI-USE.md) for permitted uses, restrictions, and additional guidance.
 
 ### Live Support
 
@@ -78,7 +94,7 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 
 ### Reporting Issues
 
-Students may use [GitHub Issues](https://github.com/GC-STEM/crs000/issues) to report problems or suggest improvements to this repository's content. For questions about coursework, grades, or other course matters, use the support and communication channels provided in **Brightspace** (https://learn.snhu.edu/d2l/home).
+Students and faculty may use [GitHub Issues](https://github.com/GC-STEM/crs000/issues) to report problems or suggest improvements to this repository's content. For questions about coursework, grades, or other course matters, use the support and communication channels provided in [**Brightspace**](https://learn.snhu.edu/d2l/home).
 
 <!-- Repository Metadata
 ---
