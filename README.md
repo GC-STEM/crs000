@@ -25,9 +25,14 @@ Complete the following module activities in the order listed to successfully pro
 
 ## Module 1: Setup Tasks
 
-- **Students**. Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%80%901-Setup-Tasks) before starting on other repository activities, ideally before the end of Week 1.
+Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%80%901-Setup-Tasks) before starting on other repository activities, ideally before the end of Week 1.
 
-- **Faculty**. Do NOT complete the student setup tasks. Follow the guidance in the [**Faculty README**](https://github.com/GC-STEM/crs000/wiki/Course-Faculty) instead.
+### Quick Access
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GC-STEM/crs000?quickstart=1)
+
+> [!WARNING]
+> [GitHub Codespaces](https://github.com/features/codespaces) is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. [Learn more](https://github.com/GC-STEM/SOE/wiki/GitHub-Codespaces).
 
 ## Modules {{A-B}}: {{A-B Common Activity Title}}
 
@@ -69,14 +74,14 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 
 ### AI Support
 
-[**GitHub Copilot**](https://github.com/copilot) is an AI assistant that can help you understand activity instructions, explain technical concepts and errors, and review your work. You can use Copilot in a web browser on GitHub.com or in Visual Studio Code (VS Code) on your computer.
+[**GitHub Copilot**](https://github.com/copilot) is an AI assistant that can help you understand activity instructions, explain technical concepts and errors, and review your work. You can use Copilot on GitHub.com or in Visual Studio Code (VS Code) on your computer.
 
 **Getting help with Copilot:**
 
-- **On GitHub.com:** Open [Copilot Chat](https://github.com/copilot), select your course repository as context, and ask a question about an activity or file. You can also open a repository file and select the Copilot icon to ask about it.
+- **On GitHub.com:** Open Copilot Chat, select your course repository as context, and ask a question about an activity or file. You can also open a repository file and select the Copilot icon to ask about it.
 - **In VS Code:** Open your course repository, sign in to GitHub, and open Copilot Chat. Select the **Course Mentor** from the agent menu, if available. This course-specific assistant is designed to explain concepts, provide feedback, and help you troubleshoot without completing your assignments.
 
-**In VS Code, with Course Mentor selected, type `/` in Copilot Chat and choose:**
+**In VS Code, with Course Mentor agent selected, type `/` in Copilot Chat and choose:**
 
 - `/understand-activity` — Understand an activity's instructions.
 - `/debug-my-attempt` — Investigate an error in your own work.
