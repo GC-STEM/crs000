@@ -2,9 +2,9 @@
 
 # CRS-000 Code Repository
 
-Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course with the files, instructions, and resources you need to complete course activities.
+Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course with the files, instructions, and resources needed to complete **computing-related assignments**, such as programming, data analysis, and technical projects. Other course activities, including discussions, quizzes, and written assignments, remain in Brightspace.
 
-**New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the **Module 1 Setup Tasks** below, which will guide you through setting up and using your own course repository.
+**New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the [**Module 1 Setup Tasks**](#module-1-setup-tasks) below, which will guide you through setting up and using your own course repository. After setup, use the module activity link for your current week to open the activity’s README and find the files you’ll work with.
 
 ---
 
@@ -15,7 +15,7 @@ Welcome to the **CRS-000 Code Repository**! This repository supplements your [**
 
 ## Table of Contents <!-- omit from toc -->
 
-Complete the following module activities in order to successfully progress through the course.
+Complete the following module activities in the order listed to successfully progress through the course.
 
 1. [Module 1: Setup Tasks](#module-1-setup-tasks)
 2. [Modules {{A-B}}: {{A-B Common Activity Title}}](#modules-a-b-a-b-common-activity-title)
@@ -67,10 +67,18 @@ Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909
 
 ## Help and Support
 
+### AI Support
+
 - [**AI use and Course Mentor**](https://github.com/GC-STEM/crs000/wiki/AI-USE.md)
+
+### Live Support
 
 - [**Support for Students**](https://github.com/GC-STEM/crs000/wiki/Support-for-Students)
 - [**Support for Faculty**](https://github.com/GC-STEM/crs000-faculty/wiki/Support-for-Faculty)
+
+### Reporting Issues
+
+Students may use [GitHub Issues](https://github.com/GC-STEM/crs000/issues) to report problems or suggest improvements to this repository's content. For questions about coursework, grades, or other course matters, use the support and communication channels provided in **Brightspace** (https://learn.snhu.edu/d2l/home).
 
 <!-- Repository Metadata
 ---
