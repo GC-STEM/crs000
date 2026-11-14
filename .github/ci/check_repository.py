@@ -119,6 +119,16 @@ def check_eol(
 def validate(root: Path, policy: dict) -> tuple[list[str], list[str]]:
     """Parse repository configuration and validate reusable Core safeguards."""
     errors, warnings = [], []
+    for path in tracked_files(root):
+        relative = path.relative_to(root)
+        if any(
+            part.casefold() == ".faculty"
+            for part in relative.parts[:-1]
+        ):
+            errors.append(
+                f"Faculty-only directory is tracked: {relative.as_posix()}"
+            )
+
     for name in policy["required_files"]:
         path = root / name
         if not path.is_file() or not path.stat().st_size:
