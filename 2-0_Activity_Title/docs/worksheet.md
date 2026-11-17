@@ -14,7 +14,7 @@
 
 ## Getting Started
 
-To complete this task effectively, use the [**Software Development Life Cycle**](https://github.com/GC-STEM/atlas/wiki/SDLC-Overview) (SDLC) to analyze, design, construct, and test each solution. Complete the following steps in order.
+To complete this task effectively, use the [**Software Development Life Cycle**](https://github.com/GC-STEM/SOE/wiki/SDLC-Overview) (SDLC) to analyze, design, construct, and test each solution. Complete the following steps in order.
 
 ### 0. Meet the Prerequisites
 

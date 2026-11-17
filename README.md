@@ -17,24 +17,26 @@ Welcome to the **CRS-000 Code Repository**! This repository supplements your [**
 
 Complete the following module activities in the order listed to successfully progress through the course.
 
-1. [Module 1: Setup Tasks](#module-1-setup-tasks)
-2. [Modules {{A-B}}: {{A-B Common Activity Title}}](#modules-a-b-a-b-common-activity-title)
-3. [Modules {{C-D}}: {{C-D Common Activity Title}}](#modules-c-d-c-d-common-activity-title)
-4. [Module 8: Next Steps](#module-8-next-steps)
-5. [Help and Support](#help-and-support)
+1. [1-1 Setup Tasks](#1-1-setup-tasks)
+2. [Repository Activities](#repository-activities)
+3. [Help and Support](#help-and-support)
 
-## Module 1: Setup Tasks
+## 1-1 Setup Tasks
+
+1. [**Set up your GitHub account**](https://github.com/GC-STEM/SOE/wiki/GitHub-Setup)
 
 Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%80%901-Setup-Tasks) before starting on other repository activities, ideally before the end of Week 1.
 
-### Quick Access
+If you are unable to complete the Module 1 Setup Tasks, you can open the course environment in GitHub Codespaces. Click the button below and wait for automatic setup to complete. Follow any onscreen instructions.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GC-STEM/crs000?quickstart=1)
 
 > [!WARNING]
-> This is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. [Learn more](https://github.com/GC-STEM/SOE/wiki/GitHub-Codespaces).
+> This is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. Free usage is limited. [Learn more](https://github.com/GC-STEM/SOE/wiki/Remote-Computing-Options).
 
-## Modules {{A-B}}: {{A-B Common Activity Title}}
+## Repository Activities
+
+### Modules {{A-B}}: {{A-B Common Activity Title}}
 
 {{AI TODO: Replace with general description of the assignments in Modules {{A-B}}, including the types of tasks and expected outcomes. Assignment should be completed in order and before the end of each respective week.}}
 
@@ -51,7 +53,7 @@ Find the matching **Guidelines & Rubric** below. Open the corresponding **Reposi
 > [!NOTE]
 > *Guidelines & Rubric* are in your [**Brightspace**](https://learn.snhu.edu/d2l/home) course under **Learning Modules** > **Assignment Information**.
 
-## Modules {{C-D}}: {{C-D Common Activity Title}}
+### Modules {{C-D}}: {{C-D Common Activity Title}}
 
 {{AI TODO: Replace with general description of the project in Modules {{C-D}}, including the types of tasks and expected outcomes. Project deliverables should be completed in order and before the end of each respective week.}}
 
@@ -66,7 +68,7 @@ Find the matching **Guidelines & Rubric** below. Open the corresponding **Reposi
 > [!NOTE]
 > *Guidelines & Rubric* are in your [**Brightspace**](https://learn.snhu.edu/d2l/home) course under **Learning Modules** > **Assignment Information**.
 
-## Module 8: Next Steps
+### Module 8: Next Steps
 
 Complete the [**Next Steps**](https://github.com/GC-STEM/crs000/wiki/8%E2%80%909-Next-Steps) to continue your progress in the course.
 
