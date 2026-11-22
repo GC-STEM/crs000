@@ -18,7 +18,7 @@
   "control": {
     "status": "draft",
     "source_repository": "https://github.com/GC-STEM/crs000",
-    "change_summary": "Migrate the student-facing course template to schema 3.2 and the GC-STEM/SOE baseline. Replace copied faculty repository identity and audience, remove faculty-source distribution metadata, and retain empty additions and overrides for course-specific requirements."
+    "change_summary": "Migrate the student-facing course template to schema 3.2 and the GC-STEM/soe baseline. Replace copied faculty repository identity and audience, remove faculty-source distribution metadata, and retain empty additions and overrides for course-specific requirements."
   },
   "course_environments": {},
   "additions": {},

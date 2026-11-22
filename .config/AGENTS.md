@@ -11,7 +11,7 @@ read the activity's `AGENTS.md` and approved directions.
 - This folder contains shared course configuration maintained by GC-STEM.
   It is not a student activity or a place for assignment solutions.
 - The [CSO manifest](cso_manifest.json) identifies the course, references
-  the shared [GC-STEM/SOE](https://github.com/GC-STEM/SOE) baseline, and
+  the shared [GC-STEM/soe](https://github.com/GC-STEM/soe) baseline, and
   declares course-specific additions and overrides.
 - [requirements.txt](requirements.txt) lists Python dependencies used to
   support development activities. Follow the approved setup instructions
@@ -56,7 +56,7 @@ session does not authorize template maintenance.
 ## Authorized configuration maintenance
 
 - Use the established course-authoring context and approved requirements.
-  Keep shared environment provisioning in GC-STEM/SOE and course-specific
+  Keep shared environment provisioning in GC-STEM/soe and course-specific
   additions and overrides in the CSO manifest.
 - Preserve manifest structure and baseline references. Do not invent
   dependencies, course identity, or environment overrides.

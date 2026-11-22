@@ -23,7 +23,7 @@ These files define or support the tools, dependencies, and settings needed for c
 
 GC-STEM uses two levels of computing environment configuration:
 
-- **Standard Operating Environment (SOE):** Common development tools and settings shared across STEM courses. Defined in the [GC-STEM/SOE](https://github.com/GC-STEM/SOE) repository.
+- **Standard Operating Environment (SOE):** Common development tools and settings shared across STEM courses. Defined in the [GC-STEM/soe](https://github.com/GC-STEM/soe) repository.
 - **Course-Specific Overlay (CSO):** Additional tools and settings required for a particular course, beyond those provided by the SOE.
 
 Configuration folders commonly contain JSON manifest files (`*_manifest.json`), Python dependency lists (`requirements*.txt`), and other files used by setup or automation scripts. The exact contents depend on the repository.

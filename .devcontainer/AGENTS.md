@@ -45,7 +45,7 @@ maintenance.
 
 ## Authorized environment maintenance
 
-- Use [GC-STEM/SOE](https://github.com/GC-STEM/SOE) for shared environment
+- Use [GC-STEM/soe](https://github.com/GC-STEM/soe) for shared environment
   requirements and provisioning. Define course-specific additions and
   overrides in the [CSO manifest](../.config/cso_manifest.json). The
   `Dockerfile` builds the shared baseline from a pinned `SOE_COMMIT`.

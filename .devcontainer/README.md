@@ -136,11 +136,11 @@ The repository includes a `Vagrantfile` placeholder for future automated VM prov
 
 Multipass provides Ubuntu virtual machines for development and testing.
 
-Use the shared provisioning scripts in [GC-STEM/SOE](https://github.com/GC-STEM/SOE/tree/main/scripts) to configure supported environments.
+Use the shared provisioning scripts in [GC-STEM/soe](https://github.com/GC-STEM/soe/tree/main/scripts) to configure supported environments.
 
 #### Windows Sandbox
 
-`Sandboxfile.wsb` launches a temporary Windows environment using the shared [SOE Windows Sandbox setup script](https://github.com/GC-STEM/SOE/blob/main/scripts/powershell/setup_windows_sandbox.ps1).
+`Sandboxfile.wsb` launches a temporary Windows environment using the shared [SOE Windows Sandbox setup script](https://github.com/GC-STEM/soe/blob/main/scripts/powershell/setup_windows_sandbox.ps1).
 
 This option is intended for testing, not persistent student coursework.
 
@@ -152,8 +152,8 @@ The course environment is defined by the following components:
 
 | Component | Purpose |
 | --- | --- |
-| [GC-STEM/SOE](https://github.com/GC-STEM/SOE) | Canonical SOE manifests, tools, and provisioning scripts |
-| [SOE manifest](https://github.com/GC-STEM/SOE/blob/main/.config/soe_manifest.json) | Shared environment requirements |
+| [GC-STEM/soe](https://github.com/GC-STEM/soe) | Canonical SOE manifests, tools, and provisioning scripts |
+| [SOE manifest](https://github.com/GC-STEM/soe/blob/main/.config/soe_manifest.json) | Shared environment requirements |
 | [CSO manifest](../.config/cso_manifest.json) | Course-specific requirements |
 | `Dockerfile` | Container build instructions |
 | `devcontainer.json` | VS Code and Codespaces configuration |
@@ -179,7 +179,7 @@ This will allow Codespaces and local Dev Containers to use the same prebuilt, te
 
 ### Maintenance Guidelines
 
-1. Maintain shared dependencies and provisioning scripts in `GC-STEM/SOE`.
+1. Maintain shared dependencies and provisioning scripts in `GC-STEM/soe`.
 2. Define course-specific requirements in `.config/cso_manifest.json`.
 3. Test environment updates before deploying them to students.
 4. Rebuild and verify containers after changing their SOE source revision or dependencies.

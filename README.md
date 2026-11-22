@@ -23,7 +23,7 @@ Complete the following module activities in the order listed to successfully pro
 
 ## 1-1 Setup Tasks
 
-1. [**Set up your GitHub account**](https://github.com/GC-STEM/SOE/wiki/GitHub-Setup)
+1. [**Set up your GitHub account**](https://github.com/GC-STEM/soe/wiki/GitHub-Setup)
 
 Complete the [**1-1 Setup Tasks**](https://github.com/GC-STEM/crs000/wiki/1%E2%80%901-Setup-Tasks) before starting on other repository activities, ideally before the end of Week 1.
 
@@ -32,7 +32,7 @@ If you are unable to complete the Module 1 Setup Tasks, you can open the course 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GC-STEM/crs000?quickstart=1)
 
 > [!WARNING]
-> This is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. Free usage is limited. [Learn more](https://github.com/GC-STEM/SOE/wiki/Remote-Computing-Options).
+> This is a temporary option for accessing the course computing environment in your browser. It is not a long-term replacement for the Module 1 Setup Tasks. Free usage is limited. [Learn more](https://github.com/GC-STEM/soe/wiki/Remote-Computing-Options).
 
 ## Repository Activities
 

@@ -32,7 +32,7 @@ The settings are maintained by GC-STEM. You may customize your personal VS Code 
 
 ## Check Your Development Environment
 
-The [**`check_dev_env.py`**](https://github.com/GC-STEM/SOE/blob/main/scripts/python/check_dev_env.py) script in your shared **Standard Operating Environment (SOE)** checks whether key development tools are available.
+The [**`check_dev_env.py`**](https://github.com/GC-STEM/soe/blob/main/scripts/python/check_dev_env.py) script in your shared **Standard Operating Environment (SOE)** checks whether key development tools are available.
 
 It checks for CPython 3.12, GNU Bash, Git, GitHub CLI, and recommended SOE VS Code extensions. Results identify missing requirements and optional recommendations.
 
@@ -43,13 +43,13 @@ Open a terminal in your **course repository's root folder** and run the command 
 **Linux / macOS (Bash or Zsh)**:
 
 ```shell
-python3 ../_shared/SOE/scripts/python/check_dev_env.py
+python3 ../_shared/soe/scripts/python/check_dev_env.py
 ```
 
 **Windows (Git Bash or PowerShell 7+)**:
 
 ```shell
-python ../_shared/SOE/scripts/python/check_dev_env.py
+python ../_shared/soe/scripts/python/check_dev_env.py
 ```
 
 These commands assume your course repository and SOE were installed in the standard `~/Repos/` directory structure during setup.

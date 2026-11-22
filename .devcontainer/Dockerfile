@@ -7,7 +7,7 @@ FROM ubuntu:24.04
 ARG SOE_COMMIT=1b50676df8559fdd2a02ce36934430504604eebc
 
 LABEL org.opencontainers.image.title="GC-STEM SOE + course CSO" \
-      org.opencontainers.image.source="https://github.com/GC-STEM/SOE" \
+      org.opencontainers.image.source="https://github.com/GC-STEM/soe" \
       org.opencontainers.image.description="Ubuntu 24.04 / Python 3.12 course environment"
 
 ENV LANG=C.UTF-8 TZ=Etc/UTC SOE_ROOT=/opt/gc-stem/soe \
@@ -25,7 +25,7 @@ RUN apt-get update \
 # Fetch the canonical SOE manifest and automation from an immutable commit.
 RUN mkdir -p "$SOE_ROOT" \
     && curl --fail --location --retry 3 --max-time 120 \
-        "https://github.com/GC-STEM/SOE/archive/${SOE_COMMIT}.tar.gz" \
+        "https://github.com/GC-STEM/soe/archive/${SOE_COMMIT}.tar.gz" \
         | tar -xz --strip-components=1 -C "$SOE_ROOT"
 
 # Vendor-signed GitHub CLI repository; package signatures are checked by APT.
