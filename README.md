@@ -4,7 +4,7 @@
 
 Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course with the files, instructions, and resources needed to complete **computing-related assignments**, such as programming, data analysis, and technical projects. Other course activities, including discussions, quizzes, and written assignments, remain in Brightspace.
 
-**New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the [**Module 1 Setup Tasks**](#module-1-setup-tasks) below, which will guide you through setting up and using your own course repository. After setup, use the module activity link for your current week to open the activity’s README and find the files you’ll work with.
+**New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the [**Module 1 Setup Tasks**](#1-1-setup-tasks) below, which will guide you through setting up and using your own course repository. After setup, use the module activity link for your current week to open the activity’s README and find the files you’ll work with.
 
 ---
 

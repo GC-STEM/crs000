@@ -8,7 +8,7 @@ questions, also use the activity's `AGENTS.md` and approved directions.
 
 ## Student setup and troubleshooting
 
-- Start with the course's [Module 1 setup tasks](../README.md#module-1-setup-tasks).
+- Start with the course's [Module 1 setup tasks](../README.md#1-1-setup-tasks).
   The course designates the Course Reference Environment (CRE) used to
   evaluate coursework. When the course provides a Codio Virtual Desktop,
   use it as the CRE. Treat Codespaces as an optional backup unless the

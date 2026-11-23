@@ -17,7 +17,7 @@ Students may use other development environments if they are **functionally equiv
 
 Most students do not need to install or configure virtualization software.
 
-Follow your course's [Module 1 Setup Tasks](../README.md#module-1-setup-tasks) to configure your development environment.
+Follow your course's [Module 1 Setup Tasks](../README.md#1-1-setup-tasks) to configure your development environment.
 
 Depending on the course, your primary environment could be one of the following:
 
