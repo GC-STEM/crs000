@@ -77,6 +77,10 @@ these sources from becoming active instruction files by default.
 
 ## Client behavior and maintenance
 
+Use the [Higher/Lower Game demonstration guide](high-low-demo.md) to compare
+activity-aware mentoring in GitHub.com Chat, Codespaces, and local VS Code.
+The configured example does not establish readiness for a graded course release.
+
 Select **Course Mentor** in a supported VS Code **Copilot harness** session
 and inspect the tools actually exposed. Invoke one of the four skills using
 `/understand-activity`, `/debug-my-attempt`, `/review-my-work`, or

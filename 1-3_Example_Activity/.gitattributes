@@ -1,5 +1,2 @@
-* text=auto eol=lf
-*.drawio text eol=lf
-*.pseudo text eol=lf
-*.md text eol=lf
-*.py text eol=lf
+# Inherit the course repository's .gitattributes.
+# Markdown, text, and Python use CRLF; Draw.io uses LF.

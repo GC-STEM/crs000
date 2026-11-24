@@ -1,193 +1,78 @@
-# {{CRS-000}} {{Task Code}} | Software Design Description
+# 1-3 Higher/Lower Game | Software Design Description
 
-<!-- TODO: Replace the title placeholders with the course code, task code, and task title. -->
-
-This **Software Design Description (SDD)** transforms the approved requirements and architecture into an implementable design. It specifies the internal organization, interfaces, data structures, algorithms, control logic, and design decisions needed to construct and verify the software.
-<!-- omit from toc -->
-## Table of Contents
-
-<!-- TODO: Generate or update the table of contents after the document structure is final. -->
+**Status:** Instructor-provided design guidance; not a completed game design or a student deliverable.
 
 ## Purpose and Scope
 
-### Purpose
+Use the [requirements](10_requirements.md) to plan your own implementation before coding. This document describes the program's overall structure and identifies design questions without supplying the game's algorithm.
 
-<!-- TODO: State the purpose of this design and how it will guide construction, verification, maintenance, or future change. -->
+## Design Inputs
 
-### Design Scope
+Read the [requirements](10_requirements.md) and review the [Python starter](../src/high_low.py).
 
-<!-- TODO: Identify the system, subsystem, feature, module set, or increment covered by this design. -->
+Optional spaces for your own planning are the [worksheet](worksheet.md), [pseudocode scratchpad](26_pseudocode.txt), and [diagram canvas](23_diagram.drawio). None is an additional submission.
 
-### Design Inputs
+## Architecture Overview
 
-<!-- TODO: Identify the requirements, architecture, standards, constraints, prototypes, existing code, or other inputs that govern this design. Link to requirements.md and architecture.md when applicable. -->
+The program runs as a single Python process and interacts with one player through a terminal. It uses no network, database, graphical interface, or saved game state.
 
-### Definitions, Acronyms, and Abbreviations
+| Element | Responsibility |
+| --- | --- |
+| Terminal | Accept player input and display messages. |
+| [src/high_low.py](../src/high_low.py) | Hold your game implementation. |
+| Python standard library | Supply the random integer operation. |
+| [tests/test_high_low.py](../tests/test_high_low.py) | Check selected behaviors using controlled input and random values. |
 
-<!-- TODO: Define design-specific vocabulary needed to interpret this document consistently. -->
+One source file and one supplied starting point keep the program small and easy to run. Terminal interaction supports practice with input and output. No additional framework or infrastructure is needed.
 
-## Design Overview
+## Provided Structure
 
-### Design Approach
+The starter includes `from random import randint`, a `main()` function, and a main guard.
 
-<!-- TODO: Summarize the design strategy, decomposition approach, paradigm, patterns, or principles used. Explain how the design fits within architecture.md. -->
+- **Import:** Makes the standard library's `randint` operation available.
+- **`main()` function:** Groups the statements that run your game.
+- **Main guard:** Calls `main()` when you run the file directly.
 
-### Design Diagram
+Keep this supplied structure and write your game inside `main()`. You do not need to define additional functions or classes.
 
-<!-- TODO: Link to [diagram.drawio](./diagram.drawio) or another diagram that communicates the design structure or behavior. State what the diagram represents and how it should be interpreted. -->
+This structure also lets the provided tests load the file without starting an interactive game. The tests then call `main()` with controlled inputs and random values. The testing code uses techniques you are not required to use in your game.
 
-### Design Responsibilities
+## Environment and Dependencies
 
-<!-- TODO: Summarize how required behavior is allocated among components, modules, classes, functions, services, or other implementation units. -->
+Use Python 3.12 in the STEM Standard Operating Environment (SOE) or course environment, locally or in Codespaces.
 
-## Component and Module Design
+The program and its provided learning checks need only Python's standard library. No additional packages are required.
 
-<!-- TODO: Document each major component or module at sufficient detail for implementation. Repeat the following subsection as needed. -->
+## Data and Interfaces
 
-### `<Component or Module Name>`
+Decide which values your program must remember, what each value means, and where it comes from.
 
-#### Purpose and Responsibilities
+The player enters integer text in the terminal, and the program displays prompts and feedback there. The supplied `randint` operation accepts valid lower and upper bounds and returns an integer that can include either endpoint.
 
-<!-- TODO: State what this unit does and which requirements or architectural responsibilities it realizes. -->
+The program does not read or write data files. Game values remain in memory while the program runs.
 
-#### Public Interface
+## Validation and Repetition
 
-<!-- TODO: Specify callable operations, commands, events, messages, endpoints, parameters, return values, preconditions, postconditions, and externally visible behavior. -->
+For each input rule, consider what makes the input valid and how the player can try again.
 
-#### Internal Structure
+For each loop you design, identify:
 
-<!-- TODO: Describe internal classes, functions, submodules, collaborators, state, and important relationships. -->
+- What condition causes repetition?
+- What information can change during a repetition?
+- What allows the loop to end?
 
-#### Dependencies
+Consider invalid input during later guesses as well as at the start. Follow the integer-input assumption and validation requirements in the [requirements document](10_requirements.md).
 
-<!-- TODO: Identify internal and external dependencies and explain how they are used. -->
+## Decisions and Feedback
 
-#### Algorithms and Logic
+Range validation and comparison with the secret number answer different questions. Explain that distinction in your own words.
 
-<!-- TODO: Describe or reference the algorithms and control logic. Link to [pseudocode.i2p](./pseudocode.i2p) or additional pseudocode files where useful. -->
-
-#### Data Used or Produced
-
-<!-- TODO: Identify data structures, persistent data, messages, files, or other data this unit reads, writes, owns, or transforms. -->
-
-#### Error and Exception Behavior
-
-<!-- TODO: Describe anticipated error conditions, validation failures, exceptions, retry behavior, fallbacks, or recovery expectations for this unit. -->
-
-## Data Design
-
-### Domain Model
-
-<!-- TODO: Describe the important domain entities, value objects, relationships, invariants, and ownership rules. Include or reference a UML class diagram or ER diagram when appropriate. -->
-
-### Data Structures
-
-<!-- TODO: Specify important in-memory structures, collections, schemas, types, fields, constraints, and representations. -->
-
-### Persistent Storage
-
-<!-- TODO: Specify files, databases, schemas, tables, collections, object stores, caches, or other persistent storage. Describe keys, relationships, integrity constraints, indexing, retention, and migration considerations as applicable. -->
-
-### Data Flow and Transformation
-
-<!-- TODO: Describe how data enters the software, moves among components, is transformed, validated, persisted, and leaves the software. -->
-
-## Interface Design
-
-### User Interface Design
-
-<!-- TODO: Describe user workflows, screens/views, navigation, inputs, outputs, validation, feedback, accessibility behavior, and error states. Link to wireframes or prototypes if available. -->
-
-### API and Service Interface Design
-
-<!-- TODO: Specify endpoints, operations, messages, schemas, parameters, responses, error contracts, authentication, versioning, and compatibility expectations. Delete this subsection if not applicable. -->
-
-### File and Data Exchange Interfaces
-
-<!-- TODO: Specify file formats, serialization, import/export behavior, encodings, schemas, or exchange conventions. Delete this subsection if not applicable. -->
-
-### Hardware / Device Interface Design
-
-<!-- TODO: Specify device commands, sensor/actuator interactions, timing, protocols, or hardware-specific behaviors. Delete this subsection if not applicable. -->
-
-## Control and Behavioral Design
-
-### Main Processing Flow
-
-<!-- TODO: Describe the principal sequence of operations from start to completion. Reference pseudocode, activity diagrams, sequence diagrams, flowcharts, or state diagrams as appropriate. -->
-
-### State and Mode Behavior
-
-<!-- TODO: Identify states, modes, valid transitions, triggers, guards, and actions. Delete this subsection if the software is effectively stateless. -->
-
-### Event Handling
-
-<!-- TODO: Describe events, callbacks, handlers, subscriptions, interrupts, messages, or asynchronous triggers and how the software responds. Delete this subsection if not applicable. -->
-
-### Concurrency and Synchronization
-
-<!-- TODO: Describe processes, threads, tasks, asynchronous operations, shared resources, locking, atomicity, race-condition prevention, scheduling, or coordination. Delete this subsection if not applicable. -->
-
-## Error Handling, Fault Tolerance, and Recovery
-
-<!-- TODO: Define system-wide strategies for input errors, exceptional conditions, partial failures, retries, timeouts, rollback, recovery, graceful degradation, cleanup, and user-facing error reporting. -->
-
-## Security and Privacy Design
-
-<!-- TODO: Explain how security and privacy requirements are realized in the detailed design, including validation, authentication, authorization, data protection, secrets, logging, safe failure, secure defaults, and privacy controls. -->
-
-## Logging, Monitoring, and Diagnostics
-
-<!-- TODO: Define logs, events, metrics, traces, health checks, diagnostic output, audit records, or other observability mechanisms required to support testing, troubleshooting, operations, or maintenance. -->
-
-## Configuration and Environment Design
-
-<!-- TODO: Identify configurable values, environment variables, configuration files, feature flags, secrets, environment-specific settings, and safe defaults. State what must not be hard-coded. -->
-
-## Performance and Resource Design
-
-<!-- TODO: Describe design choices related to time complexity, space complexity, latency, throughput, memory, CPU, I/O, network use, caching, batching, or other resource constraints. -->
-
-## Design Patterns and Reuse
-
-<!-- TODO: Identify patterns, reusable components, frameworks, libraries, or prior assets used in the design. Explain where they apply and why they are appropriate. -->
-
-## Design Decisions and Rationale
-
-<!-- TODO: Record significant detailed-design decisions, alternatives, assumptions, and trade-offs. Keep architecture-level decisions in architecture.md. -->
-
-| ID | Decision | Alternatives Considered | Rationale / Trade-offs | Related Requirements |
-| --- | --- | --- | --- | --- |
-| `DD-001` | `<decision>` | `<alternatives>` | `<why>` | `<FR/NFR-###>` |
+Decide how your program will communicate each required outcome while keeping the secret number unchanged throughout the game.
 
 ## Design Verification and Traceability
 
-<!-- TODO: Demonstrate that the design covers applicable requirements and conforms to architecture.md. Identify how major design elements will be verified by review, static analysis, unit tests, integration tests, or other evidence. -->
+Choose one case from the [test plan](40_testing.md) and trace your own design by hand. Compare the behavior you predict with the related requirements.
 
-| Requirement / Architecture Driver | Design Element | Verification Approach |
-| --- | --- | --- |
-| `<FR/NFR/ADR ID>` | `<component / section>` | `<review / test / analysis>` |
+Use your optional worksheet to record decisions, gaps, or questions. Confirm that your design addresses each functional requirement, then use the [construction guidance](30_construction.md) to implement it.
 
-## Open Issues and Deferred Design Work
-
-<!-- TODO: Record unresolved design questions, intentionally deferred details, or construction-time decisions. Assign owners or resolution triggers where useful. -->
-
-## References
-
-<!-- TODO: List external sources, standards, frameworks, libraries, documentation, or other references used to develop this document. Use the citation style required by the course. Delete this section if references are not required. -->
-
-<!--
-title: "{{CRS-000}} {{Task Code}} | {{Task Title}}"
-description: "<Brief summary of this document's purpose and scope.>"
-document_type: "Software Design Description (SDD)"
-owner: "GC-STEM, Computer Science"
-scope: "CS000.{{TaskCode}}"
-version: "<0.0.0>"
-updated: "<YYYY-MM-DDTHH:MM:SS±HH:MM>"
-toc: true
-tags: ["design", "sdd", "software-engineering"]
--->
-
-<!-- To see this file in a clean, formatted view, select ▼ in the upper-right corner of the editor pane, then select "Markdown Preview". -->
-
-<!-- TODO: Before submitting, replace all placeholders, resolve all TODO prompts, and delete sections that the assignment explicitly identifies as not applicable. -->
+Revise your design when testing reveals a problem. The required deliverable remains `src/high_low.py`; this design document is a reference.

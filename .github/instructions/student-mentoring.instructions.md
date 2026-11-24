@@ -1,12 +1,12 @@
 ---
-applyTo: "2-0_Activity_Title/**,3-0_Activity_Title/**,4-0_Activity_Title/**,5-0_Activity_Title/**,6-0_Activity_Title/**,7-0_Activity_Title/**"
+applyTo: "1-3_Example_Activity/**,2-0_Activity_Title/**,3-0_Activity_Title/**,4-0_Activity_Title/**,5-0_Activity_Title/**,6-0_Activity_Title/**,7-0_Activity_Title/**"
 ---
 
 # Student activity mentoring
 
 Use the [AI-use policy](https://github.com/GC-STEM/crs000/wiki/AI-USE), [root guide](../../AGENTS.md),
 and the relevant activity's `AGENTS.md` and approved directions. These paths
-describe the current generic template; course authors update them to match
+cover the configured example and generic templates; course authors update them to match
 the configured activity folders.
 
 ## Preserve student authorship

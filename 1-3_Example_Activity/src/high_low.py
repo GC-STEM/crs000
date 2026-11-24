@@ -1,41 +1,28 @@
-"""TODO: Replace with a one-line summary of the optional practice program.
+"""TODO: Describe the Higher/Lower Game in your own words.
 
 Input:
-    TODO: Identify the major user inputs.
+    TODO: Identify the user inputs.
 
 Process:
-    TODO: Summarize validation, random selection, decisions, and
-    repetition from your pseudocode.
+    TODO: Summarize your program's processing.
 
 Output:
-    TODO: Identify the major categories of console output.
+    TODO: Identify the categories of output.
 """
 
-# === Imports ===
-from random import randint
+from random import randint  # noqa: F401 - Used when you implement the game.
 
 
-# === Main Function ===
 def main() -> None:
-    """Run the optional higher/lower game practice program."""
-
-    # TODO: Obtain and validate the lower and upper bounds.
-
-    # TODO: Generate a random number from the valid range using randint.
-
-    # TODO: Obtain and validate the player's first guess.
-
-    # TODO: Repeat until the player guesses the random number.
-    # Give too-low or too-high feedback for incorrect valid guesses.
-    # Obtain and validate another guess when the game continues.
-
-    # TODO: Display a success message after the correct guess.
+    """Run the student's Higher/Lower Game implementation."""
+    # TODO: Implement your design using docs/10_requirements.md.
+    pass
 
 
-# === Main Guard ===
 if __name__ == "__main__":
     main()
 
 
-# === References ===
-# TODO: Add an APA-style reference for a source you used, or delete this line.
+# References:
+# TODO: Acknowledge sources used, following course citation directions.
+# If no sources were used, state that here.

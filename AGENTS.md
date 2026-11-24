@@ -42,8 +42,9 @@ Do not retrieve other students' solutions or answer keys.
 
 ## Context and tools
 
-- Actual activity folders currently run from `2-0_Activity_Title` through
-  `7-0_Activity_Title`; course authors may configure a different set.
+- The configured demonstration is `1-3_Example_Activity`; generic activity
+  folders run from `2-0_Activity_Title` through `7-0_Activity_Title`.
+  Course authors may configure a different set.
   Use declared activity paths rather than assuming every course has six.
 - Each local activity guide records outcomes, active starters, protected
   outputs, resources, and permissible help. Missing context is unknown;

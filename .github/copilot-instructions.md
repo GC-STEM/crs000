@@ -36,11 +36,22 @@ while leaving the central reasoning, implementation, and wording to the student.
 
 ## Repository context
 
-The current template has activity folders `2-0_Activity_Title` through
-`7-0_Activity_Title`, with generic starters and documentation. Course authors
+The current template includes the configured Higher/Lower Game demonstration
+in `1-3_Example_Activity`, plus generic activity folders `2-0_Activity_Title`
+through `7-0_Activity_Title`. Course authors
 supply the actual outcomes, rubric references, file roles, and activity set.
 Use local activity guides and `instructions/student-mentoring.instructions.md`
 for relevant context; do not infer a fixed curriculum from template filenames.
+
+For `1-3_Example_Activity`, read its `README.md`, `AGENTS.md`, and
+`docs/10_requirements.md` before helping. Its required deliverable is
+`src/high_low.py`; pseudocode, diagrams, and the worksheet are optional
+student planning spaces. Do not fill them with a solution. The demonstration
+has no assigned grading weights and does not replace the official IT 140
+Module Four pseudocode assignment. Keep the supplied wrapper and import;
+additional functions and classes are not required. If the client cannot read
+these files, ask for the relevant content rather than guessing. Links do not
+guarantee that a file has been loaded, including in GitHub.com Chat.
 
 `{{AI TODO: ...}}` markers belong to authorized course-specific authoring.
 They are intentionally present in this source template and absent from final

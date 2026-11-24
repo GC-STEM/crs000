@@ -36,6 +36,13 @@ If you are unable to complete the Module 1 Setup Tasks, you can open the course 
 
 ## Repository Activities
 
+### 1-3 Example Activity: Higher/Lower Game
+
+The [Higher/Lower Game example](1-3_Example_Activity/README.md) demonstrates
+the activity document structure and AI mentoring with a Python deliverable,
+`high_low.py`. It adapts the IT 140 Module Four game for this demonstration;
+it does not replace that course's official pseudocode assignment.
+
 ### Modules {{A-B}}: {{A-B Common Activity Title}}
 
 {{AI TODO: Replace with general description of the assignments in Modules {{A-B}}, including the types of tasks and expected outcomes. Assignment should be completed in order and before the end of each respective week.}}
