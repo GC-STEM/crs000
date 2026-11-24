@@ -2,6 +2,18 @@
 
 # CRS-000 Code Repository
 
+![Status](https://img.shields.io/badge/Status-Under%20Development-yellow)
+![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20macOS%20%7C%20Linux-blue)
+![Reference OS](https://img.shields.io/badge/Reference%20OS-Ubuntu%2024.04%20LTS-E95420?logo=ubuntu&logoColor=white)
+[![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Supported-8250DF?logo=githubcopilot&logoColor=white)](https://github.com/GC-STEM/soe/wiki/GitHub-Copilot)
+![AI Agents](https://img.shields.io/badge/AI%20Agents-Supported-8250DF)
+![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Supported-8250DF)
+![MCP](https://img.shields.io/badge/MCP-Supported-007EC6)
+[![Core Validation](https://github.com/GC-STEM/soe/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/GC-STEM/soe/actions/workflows/tests.yml)
+[![Command Syntax](https://github.com/GC-STEM/soe/actions/workflows/readme-commands.yml/badge.svg?branch=main)](https://github.com/GC-STEM/soe/actions/workflows/readme-commands.yml)
+[![Internal Links](https://github.com/GC-STEM/soe/actions/workflows/internal-links.yml/badge.svg?branch=main)](https://github.com/GC-STEM/soe/actions/workflows/internal-links.yml)
+[![External Links](https://github.com/GC-STEM/soe/actions/workflows/external-links.yml/badge.svg?branch=main)](https://github.com/GC-STEM/soe/actions/workflows/external-links.yml)
+
 Welcome to the **CRS-000 Code Repository**! This repository supplements your [**Brightspace**](https://learn.snhu.edu/d2l/home) course with the files, instructions, and resources needed to complete **computing-related assignments**, such as programming, data analysis, and technical projects. Other course activities, including discussions, quizzes, and written assignments, remain in Brightspace.
 
 **New to GitHub?** Don't worry if the folders and files look unfamiliar. Start with the [**Module 1 Setup Tasks**](#1-1-setup-tasks) below, which will guide you through setting up and using your own course repository. After setup, use the module activity link for your current week to open the activity’s README and find the files you’ll work with.
