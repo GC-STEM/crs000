@@ -9,8 +9,7 @@ activity's sole required deliverable.
 
 ## Construction Inputs
 
-Use the [requirements](10_requirements.md), [design guidance](20_design.md),
-[provided structure](21_architecture.md), and your own planning notes.
+Use the [requirements](10_requirements.md), [design guidance](20_design.md), and your own planning notes.
 
 ## Development Environment
 

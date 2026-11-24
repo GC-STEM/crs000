@@ -48,7 +48,6 @@ their implementation and observed test results.
 
 - [Requirements](10_requirements.md)
 - [Design](20_design.md)
-- [Architecture](21_architecture.md)
 - [Construction](30_construction.md)
 - [Testing](40_testing.md)
 - [Optional worksheet](worksheet.md)

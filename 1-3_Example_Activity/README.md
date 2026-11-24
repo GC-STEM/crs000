@@ -31,7 +31,6 @@ classes. The standard-library `randint` operation is also provided.
 | [docs/00_overview.md](docs/00_overview.md) | Problem and scope | Read. |
 | [docs/10_requirements.md](docs/10_requirements.md) | Required behavior and constraints | Read and check your work against it. |
 | [docs/20_design.md](docs/20_design.md) | Design guidance | Read; make your own design decisions. |
-| [docs/21_architecture.md](docs/21_architecture.md) | Program structure and supplied wrapper | Read. |
 | [docs/30_construction.md](docs/30_construction.md) | Coding guidance | Read. |
 | [docs/40_testing.md](docs/40_testing.md) | Test plan | Run checks and observe results. |
 | [docs/worksheet.md](docs/worksheet.md) | Optional working notes | Write your own notes; not submitted. |

@@ -55,7 +55,7 @@ demonstration. They are not claims about additional official rubric criteria.
 | Requirement | Design guidance | Implementation | Verification |
 | --- | --- | --- | --- |
 | FR-001, FR-002 | [Validation](20_design.md#validation-and-repetition) | `src/high_low.py` | T-01, T-02, T-03; prompt/message review |
-| FR-003 | [Provided structure](21_architecture.md#provided-structure) | `src/high_low.py` | T-01 through T-08 check random-operation arguments and call count |
+| FR-003 | [Provided structure](20_design.md#architecture-overview) | `src/high_low.py` | T-01 through T-08 check random-operation arguments and call count |
 | FR-004, FR-005 | [Validation](20_design.md#validation-and-repetition) | `src/high_low.py` | T-04, T-05; invalid-input feedback review |
 | FR-006 | [Decisions](20_design.md#decisions-and-feedback) | `src/high_low.py` | T-06 plus manual feedback review |
 | FR-007, FR-008 | [Validation](20_design.md#validation-and-repetition) | `src/high_low.py` | T-01, T-04 through T-08; stopping review |
